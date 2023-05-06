@@ -7,9 +7,7 @@ const totalPersonValue = document.querySelector(".total-person__value");
 const resetBtn = document.querySelector("#reset-btn");
 const errMsg = document.querySelector("#err-msg");
 
-let billAmount;
-let tipPercentage;
-let numberPeople;
+let billAmount, tipPercentage, numberPeople;
 
 const calculate = () => {
   const tipPerPerson = (billAmount * (tipPercentage / 100)) / numberPeople || 0;
