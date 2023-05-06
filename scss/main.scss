@@ -1,0 +1,259 @@
+@import "reset";
+@import "config";
+
+body {
+  background-color: $clr-neutral-400;
+  font-family: $ff-primary;
+
+  @media screen and (min-width: 992px) {
+    padding-top: 3rem;
+  }
+}
+
+.logo {
+  margin-inline: auto;
+  margin-block: 3rem;
+}
+
+section {
+  background-color: $clr-neutral-100;
+  border-radius: 1.5rem 1.5rem 0 0;
+  padding: 2rem 2rem;
+  display: grid;
+
+  @media screen and (min-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 90%;
+    max-width: 60rem;
+    margin-inline: auto;
+    border-radius: 1.5rem;
+  }
+}
+
+.billing {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  input {
+    border: none;
+    background-color: $clr-neutral-300;
+    padding: 0.4rem;
+    border-radius: 0.275rem;
+    background-image: url("../images/icon-dollar.svg");
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    direction: rtl;
+    color: $clr-neutral-700;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:is(:hover, :focus) {
+      outline: 2px solid $clr-neutral-400;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+.green-text {
+  color: $clr-neutral-600;
+}
+
+.tip-percentage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  .tip-btn-group {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+
+    @media screen and (min-width: 992px) {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .tip-btn {
+      padding-block: 0.5rem;
+      border: none;
+      background-color: $clr-neutral-700;
+      color: $clr-neutral-100;
+      cursor: pointer;
+      font-size: 1.4em;
+      border-radius: 0.3rem;
+
+      &:hover {
+        background-color: $clr-neutral-400;
+        color: $clr-neutral-700;
+      }
+
+      &.clicked {
+        background-color: $clr-primary;
+        color: $clr-neutral-700;
+      }
+    }
+
+    .tip-input {
+      padding-right: 1rem;
+      padding-block: 0.5rem;
+      border: none;
+      border-radius: 0.3rem;
+      outline: none;
+      background-color: $clr-neutral-300;
+      width: 100%;
+      font-size: 1.4rem;
+      color: $clr-neutral-700;
+      cursor: pointer;
+      direction: rtl;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      &:is(:hover, :focus) {
+        outline: 2px solid $clr-neutral-400;
+      }
+
+      &::placeholder {
+        color: $clr-neutral-600;
+      }
+    }
+  }
+}
+
+.number-people {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    #err-msg {
+      color: orange;
+      display: none;
+
+      &.show {
+        display: inline;
+      }
+    }
+  }
+
+  input {
+    direction: rtl;
+    padding-right: 1rem;
+    border: none;
+    background-color: $clr-neutral-300;
+    border-radius: 0.3rem;
+    padding-block: 0.5rem;
+    font-size: 1.4rem;
+    color: $clr-neutral-700;
+    background-image: url("../images/icon-person.svg");
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid transparent;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &:is(:hover, :focus) {
+      border: 2px solid $clr-neutral-400;
+    }
+
+    &.invalid {
+      border: 2px solid orange;
+    }
+
+    &::placeholder {
+      color: $clr-neutral-600;
+    }
+  }
+}
+
+.results {
+  background-color: $clr-neutral-700;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+
+  div[class$="per-person"] {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .per-person__label {
+      color: $clr-neutral-100;
+      font-size: 0.95rem;
+
+      @media screen and (min-width: 992px) {
+        font-size: 1.1rem;
+      }
+
+      span {
+        color: $clr-neutral-500;
+        font-size: 0.8rem;
+
+        @media screen and (min-width: 992px) {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    span[class$="person__value"] {
+      color: $clr-primary;
+      font-size: 1.8rem;
+
+      @media screen and (min-width: 992px) {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  button {
+    margin-top: 0.8rem;
+    background-color: $clr-primary;
+    border: none;
+    padding-block: 0.5rem;
+    border-radius: 0.3rem;
+    text-transform: uppercase;
+    color: $clr-neutral-700;
+    font-weight: $fw-primary;
+    font-size: 1.2rem;
+    display: block;
+    cursor: pointer;
+
+    @media screen and (min-width: 992px) {
+      align-self: end;
+    }
+
+    &:hover {
+      background-color: $clr-neutral-400;
+      color: $clr-neutral-700;
+    }
+  }
+}

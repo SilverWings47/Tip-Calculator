@@ -1,0 +1,310 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  min-height: 100vh;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body {
+  background-color: hsl(185, 41%, 84%);
+  font-family: "Space Mono", monospace;
+}
+@media screen and (min-width: 992px) {
+  body {
+    padding-top: 3rem;
+  }
+}
+
+.logo {
+  margin-inline: auto;
+  margin-block: 3rem;
+}
+
+section {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 1.5rem 1.5rem 0 0;
+  padding: 2rem 2rem;
+  display: grid;
+}
+@media screen and (min-width: 992px) {
+  section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 90%;
+    max-width: 60rem;
+    margin-inline: auto;
+    border-radius: 1.5rem;
+  }
+}
+
+.billing {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.billing input {
+  border: none;
+  background-color: hsl(189, 41%, 97%);
+  padding: 0.4rem;
+  border-radius: 0.275rem;
+  background-image: url("../images/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  direction: rtl;
+  color: hsl(183, 100%, 15%);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.billing input:is(:hover, :focus) {
+  outline: 2px solid hsl(185, 41%, 84%);
+}
+.billing input::-webkit-outer-spin-button, .billing input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.green-text {
+  color: hsl(186, 14%, 43%);
+}
+
+.tip-percentage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.tip-percentage .tip-btn-group {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+@media screen and (min-width: 992px) {
+  .tip-percentage .tip-btn-group {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
+.tip-percentage .tip-btn-group .tip-btn {
+  padding-block: 0.5rem;
+  border: none;
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  font-size: 1.4em;
+  border-radius: 0.3rem;
+}
+.tip-percentage .tip-btn-group .tip-btn:hover {
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(183, 100%, 15%);
+}
+.tip-percentage .tip-btn-group .tip-btn.clicked {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+.tip-percentage .tip-btn-group .tip-input {
+  padding-right: 1rem;
+  padding-block: 0.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  outline: none;
+  background-color: hsl(189, 41%, 97%);
+  width: 100%;
+  font-size: 1.4rem;
+  color: hsl(183, 100%, 15%);
+  cursor: pointer;
+  direction: rtl;
+}
+.tip-percentage .tip-btn-group .tip-input::-webkit-outer-spin-button, .tip-percentage .tip-btn-group .tip-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.tip-percentage .tip-btn-group .tip-input:is(:hover, :focus) {
+  outline: 2px solid hsl(185, 41%, 84%);
+}
+.tip-percentage .tip-btn-group .tip-input::-moz-placeholder {
+  color: hsl(186, 14%, 43%);
+}
+.tip-percentage .tip-btn-group .tip-input::placeholder {
+  color: hsl(186, 14%, 43%);
+}
+
+.number-people {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+.number-people > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.number-people > div #err-msg {
+  color: orange;
+  display: none;
+}
+.number-people > div #err-msg.show {
+  display: inline;
+}
+.number-people input {
+  direction: rtl;
+  padding-right: 1rem;
+  border: none;
+  background-color: hsl(189, 41%, 97%);
+  border-radius: 0.3rem;
+  padding-block: 0.5rem;
+  font-size: 1.4rem;
+  color: hsl(183, 100%, 15%);
+  background-image: url("../images/icon-person.svg");
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid transparent;
+}
+.number-people input::-webkit-outer-spin-button, .number-people input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.number-people input:is(:hover, :focus) {
+  border: 2px solid hsl(185, 41%, 84%);
+}
+.number-people input.invalid {
+  border: 2px solid orange;
+}
+.number-people input::-moz-placeholder {
+  color: hsl(186, 14%, 43%);
+}
+.number-people input::placeholder {
+  color: hsl(186, 14%, 43%);
+}
+
+.results {
+  background-color: hsl(183, 100%, 15%);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+}
+.results div[class$=per-person] {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.results div[class$=per-person] .per-person__label {
+  color: hsl(0, 0%, 100%);
+  font-size: 0.95rem;
+}
+@media screen and (min-width: 992px) {
+  .results div[class$=per-person] .per-person__label {
+    font-size: 1.1rem;
+  }
+}
+.results div[class$=per-person] .per-person__label span {
+  color: hsl(184, 14%, 56%);
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 992px) {
+  .results div[class$=per-person] .per-person__label span {
+    font-size: 0.9rem;
+  }
+}
+.results div[class$=per-person] span[class$=person__value] {
+  color: hsl(172, 67%, 45%);
+  font-size: 1.8rem;
+}
+@media screen and (min-width: 992px) {
+  .results div[class$=per-person] span[class$=person__value] {
+    font-size: 3rem;
+  }
+}
+.results button {
+  margin-top: 0.8rem;
+  background-color: hsl(172, 67%, 45%);
+  border: none;
+  padding-block: 0.5rem;
+  border-radius: 0.3rem;
+  text-transform: uppercase;
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: block;
+  cursor: pointer;
+}
+@media screen and (min-width: 992px) {
+  .results button {
+    align-self: end;
+  }
+}
+.results button:hover {
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(183, 100%, 15%);
+}
