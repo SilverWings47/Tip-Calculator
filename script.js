@@ -1,11 +1,11 @@
-const billInput = document.querySelector("#bill-amount");
-const tipBtns = document.querySelectorAll(".tip-btn");
-const customTipInput = document.querySelector(".tip-input");
-const numberPeopleInput = document.querySelector(".number-people input");
-const perPersonValue = document.querySelector(".per-person__value");
-const totalPersonValue = document.querySelector(".total-person__value");
-const resetBtn = document.querySelector("#reset-btn");
-const errMsg = document.querySelector("#err-msg");
+const billInput = document.querySelector("#bill-amount"),
+      tipBtns = document.querySelectorAll(".tip-btn"),
+      customTipInput = document.querySelector(".tip-input"),
+      numberPeopleInput = document.querySelector(".number-people input"),
+      perPersonValue = document.querySelector(".per-person__value"),
+      totalPersonValue = document.querySelector(".total-person__value"),
+      resetBtn = document.querySelector("#reset-btn"),
+      errMsg = document.querySelector("#err-msg");
 
 let billAmount, tipPercentage, numberPeople;
 
